@@ -1,0 +1,35 @@
+CampusHelpDesk frontend repair patch
+====================================
+
+This patch restores the missing Student App component and Admin Dashboard,
+and supplies the missing Admin stylesheet.
+
+Files included:
+- frontend/src/App.jsx
+- admin-frontend/src/components/AdminDashboard.jsx
+- admin-frontend/src/styles.css
+
+The Admin Dashboard derives analytics from /api/admin/complaints because the
+backend in the supplied archive does not implement /api/admin/analytics.
+
+Before applying:
+1. Stop the CampusHelpDesk services (Ctrl+C in their terminals, or use your stop script).
+2. Back up your current project folder.
+3. Extract this patch into the folder ABOVE CampusHelpDesk, allowing paths to merge.
+   Example: extract into /home/<your-user> so files land in ~/CampusHelpDesk/...
+
+Then from terminal:
+  cd ~/CampusHelpDesk/frontend && pnpm run build
+  cd ~/CampusHelpDesk/admin-frontend && pnpm run build
+
+If both builds pass, restart with:
+  cd ~/CampusHelpDesk
+  ./start.sh
+
+Expected URLs:
+  Student: http://localhost:5174
+  Admin:   http://localhost:5175
+  API:     http://127.0.0.1:5000
+
+This patch does not modify the database, .env credentials, backend, or package
+dependencies. Keep your existing .env files private and unchanged.

@@ -1,0 +1,56 @@
+CampusHelpDesk — TWO HOSTS + BACKEND
+=====================================
+
+This project keeps the two portals separate:
+
+Student portal: http://localhost:5174
+Admin portal:   http://localhost:5175
+Flask API:      http://127.0.0.1:5000
+
+Both Vite configurations are set to host 0.0.0.0 with strict ports.
+The root campus.sh starts the backend, student portal, and admin portal
+together.
+
+FIRST-TIME SETUP (Ubuntu)
+-------------------------
+1. Extract this ZIP.
+2. Open a terminal in the extracted CampusHelpDesk folder.
+3. Copy backend/.env.example to backend/.env:
+     cp backend/.env.example backend/.env
+4. Edit backend/.env and enter the real MySQL DB_PASSWORD and a new
+   64-character hex JWT_SECRET_KEY. Keep the file private.
+   Generate the key with:
+     openssl rand -hex 32
+5. Ensure MySQL is running and the campus_helpdesk database/user exist.
+6. Install dependencies and create the Python environment:
+     chmod +x campus.sh
+     ./campus.sh setup
+7. Apply account migrations (only after DB credentials are correct):
+     ./campus.sh migrate
+8. Create the first admin if one does not already exist:
+     ./campus.sh create-admin
+9. Start all services:
+     ./campus.sh start
+
+EVERYDAY COMMANDS
+----------------
+Start all:   ./campus.sh start
+Restart all: ./campus.sh restart
+Stop all:    ./campus.sh stop
+Status:      ./campus.sh status
+
+HEALTH CHECK
+------------
+curl http://127.0.0.1:5000/api/health
+
+NOTES
+-----
+- Student and admin portals are separate Vite applications.
+- Student portal uses port 5174.
+- Admin portal uses port 5175.
+- Backend CORS permits localhost and 127.0.0.1 on both ports.
+- The real backend/.env and local runtime logs/PIDs are intentionally
+  not included in this ZIP. Create backend/.env from the example and
+  enter your own credentials on your computer.
+- Existing MySQL data is not included or modified by this ZIP.
+- Do not expose DB passwords or JWT secrets in screenshots or chats.
