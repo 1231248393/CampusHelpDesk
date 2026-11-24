@@ -1,5 +1,8 @@
 # CampusHelpDesk
 
+> **Installation guides:** [Windows 10/11 and Ubuntu/Linux installation instructions](https://github.com/1231248393/CampusHelpDesk/blob/main/docs/INSTALLATION.md)
+
+
 A full-stack campus complaint management platform with separate Student and Admin portals, a Flask REST API, and a MySQL database.
 
 > CampusHelpDesk is an independent project. It is separate from the author's CircuitWeb and EduLabX repositories.
