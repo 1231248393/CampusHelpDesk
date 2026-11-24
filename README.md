@@ -1,6 +1,6 @@
 # CampusHelpDesk
 
-[Read the detailed installation guide](https://github.com/1231248393/CampusHelpDesk/blob/main/docs/INSTALLATION.md)
+[Read the detailed installation guide — Windows 10/11 & Ubuntu/Linux](https://github.com/1231248393/CampusHelpDesk/blob/main/docs/INSTALLATION.md)
 
 
 
